@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Abandoned" xml:space="preserve">
+    <value>ABANDONED</value>
+  </data>
+  <data name="AddMapButtonContent" xml:space="preserve">
+    <value>Add new map</value>
+  </data>
+  <data name="AddMapButtonToolTip" xml:space="preserve">
+    <value>Add new arcade map to table</value>
+  </data>
+  <data name="ConnectionIsLostMessage" xml:space="preserve">
+    <value>Can't get data. Please check Internet connection.
+</value>
+  </data>
+  <data name="ConnectionRestoredMessage" xml:space="preserve">
+    <value>Connection fully restored.
+</value>
+  </data>
+  <data name="DisableSearch" xml:space="preserve">
+    <value>Disable search</value>
+  </data>
+  <data name="EnableSearch" xml:space="preserve">
+    <value>Enable search</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Host" xml:space="preserve">
+    <value>Host: </value>
+  </data>
+  <data name="InpuBoxToolTip" xml:space="preserve">
+    <value>Name of map which you want to add</value>
+  </data>
+  <data name="LobbyAbandonedMessage" xml:space="preserve">
+    <value>Lobby was abandoned at: </value>
+  </data>
+  <data name="LobbyStartedMessage" xml:space="preserve">
+    <value>Lobby was started at: </value>
+  </data>
+  <data name="MapAddedMessage" xml:space="preserve">
+    <value>Map "newMap" successfully added to the table.
+</value>
+  </data>
+  <data name="MapAlreadyExistMessage" xml:space="preserve">
+    <value>Map "newMap" is already exists on the table.
+</value>
+  </data>
+  <data name="MapNotExistMessage" xml:space="preserve">
+    <value>Map "newMap" doesn't exist in StarCraft 2.
+</value>
+  </data>
+  <data name="MapsNamesColumn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="MapsNamesColumnToolTip" xml:space="preserve">
+    <value>Name of StarCraft 2 map</value>
+  </data>
+  <data name="MapsNamesContextMenuDeleteSlectedMaps" xml:space="preserve">
+    <value>Delete selected maps</value>
+  </data>
+  <data name="MapsNamesContextMenuOpenLinkEU" xml:space="preserve">
+    <value>Open EU map on StarCraft II Arcade</value>
+  </data>
+  <data name="MapsNamesContextMenuOpenLinkUS" xml:space="preserve">
+    <value>Open US map on StarCraft II Arcade</value>
+  </data>
+  <data name="MapsNamesContextMenuSearchOnEU" xml:space="preserve">
+    <value>Change EU search status</value>
+  </data>
+  <data name="MapsNamesContextMenuSearchOnUS" xml:space="preserve">
+    <value>Change US search status</value>
+  </data>
+  <data name="Opened" xml:space="preserve">
+    <value>OPENED</value>
+  </data>
+  <data name="PlayersInLobby" xml:space="preserve">
+    <value>Players in lobby</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>Remaining:</value>
+  </data>
+  <data name="SearchDisabledMessage" xml:space="preserve">
+    <value>Lobbies search disabled.
+</value>
+  </data>
+  <data name="SearchEnabledMessage" xml:space="preserve">
+    <value>Lobbies search enabled.
+</value>
+  </data>
+  <data name="SearchOnEUColumnToolTip" xml:space="preserve">
+    <value>Map search status on European server</value>
+  </data>
+  <data name="SearchOnUSColumnToolTip" xml:space="preserve">
+    <value>Map search status on American server</value>
+  </data>
+  <data name="ShowMainWindow" xml:space="preserve">
+    <value>Show main window</value>
+  </data>
+  <data name="SiteDoesntWorkMessage" xml:space="preserve">
+    <value>StarCraft II Arcade doesn't work. Please try again later.
+</value>
+  </data>
+  <data name="SiteDoesntWorkOnEUMessage" xml:space="preserve">
+    <value>StarCraft II Arcade doesn't work on EU server. Search work only on US server.
+</value>
+  </data>
+  <data name="SiteDoesntWorkOnUSMessage" xml:space="preserve">
+    <value>StarCraft II Arcade doesn't work on US server. EU server work only.
+</value>
+  </data>
+  <data name="Started" xml:space="preserve">
+    <value>STARTED</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title: </value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>UNKNOWN</value>
+  </data>
+  <data name="UnknownEnd1" xml:space="preserve">
+    <value>Lobby was infected by zerg swarm at: </value>
+  </data>
+  <data name="UnknownEnd2" xml:space="preserve">
+    <value>Lobby has returned to the Void at: </value>
+  </data>
+  <data name="UnknownEnd3" xml:space="preserve">
+    <value>Lobby was blown to hell at: </value>
+  </data>
+  <data name="UserNotEnteredMapNameMessage" xml:space="preserve">
+    <value>You must first enter name of the map.
+</value>
+  </data>
+</root>
