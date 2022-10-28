@@ -1,0 +1,339 @@
+﻿<Window x:Class="SC2_Lobby_Notifier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SC2_Lobby_Notifier"
+        xmlns:rs="clr-namespace:SC2_Lobby_Notifier.Properties"
+        mc:Ignorable="d"
+        Title="SC2 Lobby Notifier"
+        Height="450" Width="600"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Closed="ApplicationCloseEvent"
+        Background="#FF191919">
+
+
+
+    
+    <!-- ================================== Настройка элементов интерфейса по умолчанию ================================== -->
+    <Window.Resources>
+        
+        <!-- Настройка заголовков таблицы -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#232323"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <!-- Настройка ячеек таблицы -->
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#1a71b6"/>
+                    <Setter Property="BorderBrush" Value="#00045c"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#008eff"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Background" Value="#3F000000"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!-- Настройка подсказок -->
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderBrush" Value="#008eff"/>
+            <Setter Property="Background" Value="#232323"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+        </Style>
+        
+        <!-- Настройка ползунка таблицы -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Width="5">
+                            <Track Name="PART_Track" IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb BorderBrush="#1a71b6"
+                                           BorderThickness="10"
+                                           Style="{DynamicResource ScrollThumbs}"/>
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageDownCommand"
+                                                  Opacity="0" Focusable="False"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageUpCommand"
+                                                  Opacity="0" Focusable="False"/>
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+
+
+
+
+    <!-- =============================================== Элементы интерфейса =============================================== -->
+    <Grid>
+
+
+
+
+        <!-- ................................. Элемент для перетаскивания окна программы ................................. -->
+        <Border Background="Transparent" MouseDown="DragWindow"/>
+
+
+
+
+        <!-- ......................................... Кнопка закрытия программы ......................................... -->
+        <Image Margin="556,0,0,427" MouseDown="CloseButtonPressed">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Setter Property="Source" Value="Images/Close_Button_Normal.png"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="Images/Close_Button_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <!-- ..................................... Кнопка сворачивания программы в трей .................................... -->
+        <Image Margin="516,0,44,427" MouseDown="MinimizeButton_Pressed">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Setter Property="Source" Value="Images/Minimize_Button_Normal.png"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="Images/Minimize_Button_Hover.png"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+
+
+
+        
+        <!-- ....................... Таблица карт необходимых для нахождения в списках активных лобби ....................... -->
+        <DataGrid
+            x:Name="MapsList"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
+            Foreground="#2196F3"
+            RowBackground="#272727"
+            AlternatingRowBackground="#1E1E1E"
+            Margin="10,10,311,37"
+            GridLinesVisibility="None"
+            CanUserReorderColumns="False"
+            CanUserResizeColumns="False"
+            CanUserResizeRows="False"
+            CanUserDeleteRows="False"
+            CanUserAddRows="False"
+            Width="Auto"
+            ColumnWidth="*"
+            HeadersVisibility="Column"
+            FontFamily="Roboto"
+            FontSize="15"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+        >
+            
+            
+            
+            <!-- ...................... Настройка цвета выделенных строк таблицы ...................... -->
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#7f003b69"/>
+            </DataGrid.Resources>
+
+
+
+            <!-- .............................. Настройка колонок таблицы .............................. -->
+            <DataGrid.Columns>
+
+
+                <!-- .................... Настройка колонки с названиями карт .................... -->
+                <DataGridTemplateColumn>
+                    
+                    <!-- Настройка заголовка столбца -->
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{x:Static rs:Resources.MapsNamesColumn}">
+                            <TextBlock.ToolTip>
+                                <TextBlock Text="{x:Static rs:Resources.MapsNamesColumnToolTip}"/>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </DataGridTemplateColumn.Header>
+                    
+                    <!-- Настройка ячеек -->
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" ToolTip="{Binding Name}">
+                                <!-- Добавление контекстного меню -->
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem
+                                            Header="{x:Static rs:Resources.MapsNamesContextMenuSearchOnEU}"
+                                            IsEnabled="{Binding IsCellEnabledEU}"
+                                            Click="ChangeSearchOnEUStatus"
+                                        />
+                                        <MenuItem
+                                            Header="{x:Static rs:Resources.MapsNamesContextMenuSearchOnUS}"
+                                            IsEnabled="{Binding IsCellEnabledUS}"
+                                            Click="ChangeSearchOnUSStatus"
+                                        />
+                                        <Separator/>
+                                        <MenuItem
+                                            Header="{x:Static rs:Resources.MapsNamesContextMenuOpenLinkEU}"
+                                            IsEnabled="{Binding IsCellEnabledEU}"
+                                            Click="OpenMapInfoEU"
+                                        />
+                                        <MenuItem
+                                            Header="{x:Static rs:Resources.MapsNamesContextMenuOpenLinkUS}"
+                                            IsEnabled="{Binding IsCellEnabledUS}"
+                                            Click="OpenMapInfoUS"
+                                        />
+                                        <Separator/>
+                                        <MenuItem
+                                            InputGestureText="Ctrl+D"
+                                            Header="{x:Static rs:Resources.MapsNamesContextMenuDeleteSlectedMaps}"
+                                            Click="DeleteMaps_Click"
+                                        />
+                                    </ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <!-- ......... Настройка колонки с поиском карты по европейскому серверу .......... -->
+                <DataGridCheckBoxColumn Binding="{Binding AvaiableOnEU}" MaxWidth="30">
+                    
+                    <!-- Настройка заголовка -->
+                    <DataGridCheckBoxColumn.Header>
+                        <Image Source="Images/EU.png" Width="22">
+                            <Image.ToolTip>
+                                <TextBlock Text="{x:Static rs:Resources.SearchOnEUColumnToolTip}"/>
+                            </Image.ToolTip>
+                        </Image>
+                    </DataGridCheckBoxColumn.Header>
+                    
+                    <!-- Высвечивание подсказки в виде ссылки на карту на европейском сервере -->
+                    <DataGridCheckBoxColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding MapLinkEU}"/>
+                            <Setter Property="ToolTipService.IsEnabled" Value="{Binding IsCellEnabledEU}"/>
+                            <Setter Property="Visibility" Value="{Binding CellVisibleEU}"/>
+                            <EventSetter Event="MouseDown" Handler="CheckBoxCheckedEU"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.CellStyle>
+                </DataGridCheckBoxColumn>
+
+
+                <!-- ......... Настройка колонки с поиском карты по американскому серверу ......... -->
+                <DataGridCheckBoxColumn Binding="{Binding AvaiableOnUS}" MaxWidth="30">
+                    
+                    <!-- Настройка заголовка -->
+                    <DataGridCheckBoxColumn.Header>
+                        <Image Source="Images/US.png" Width="22">
+                            <Image.ToolTip>
+                                <TextBlock Text="{x:Static rs:Resources.SearchOnUSColumnToolTip}"/>
+                            </Image.ToolTip>
+                        </Image>
+                    </DataGridCheckBoxColumn.Header>
+                    
+                    <!-- Высвечивание подсказки в виде ссылки на карту на американском сервере-->
+                    <DataGridCheckBoxColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding MapLinkUS}"/>
+                            <Setter Property="ToolTipService.IsEnabled" Value="{Binding IsCellEnabledUS}"/>
+                            <Setter Property="Visibility" Value="{Binding CellVisibleUS}"/>
+                            <EventSetter Event="MouseDown" Handler="CheckBoxCheckedUS"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.CellStyle>
+                </DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+        <!-- ................................. Текстовая панель для вывода логов уведомлений ................................ -->
+        <RichTextBox
+            Name="LogTextBox"
+            Margin="294,28,10,10"
+            Background="#1E1E1E"
+            Foreground="White"
+            BorderBrush="#008eff"
+            FontFamily="Roboto"
+            FontSize="15"
+            IsReadOnly="True"
+        />
+
+
+
+
+        <!-- .................................. Поле ввода имени добавляемой в таблицу карты ................................ -->
+        <TextBox
+            Name="NewMapName"
+            Margin="10,418,430,10"
+            Background="#1E1E1E"
+            Foreground="White"
+            BorderBrush="#008eff"
+            FontFamily="Roboto"
+            FontSize="15"
+            ToolTip="{x:Static rs:Resources.InpuBoxToolTip}"
+        />
+
+
+
+
+        <!-- .................................... Кнопка обработки введенного названия карты ................................. -->
+        <Button
+            Name="AddMap"
+            Content="{x:Static rs:Resources.AddMapButtonContent}"
+            Margin="175,418,311,10"
+            Background="#2b2b2b"
+            Foreground="White"
+            FontFamily="Roboto"
+            FontSize="15"
+            ToolTip="{x:Static rs:Resources.AddMapButtonToolTip}"
+            Click="AddMapClick"
+        >
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Name="Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="#4d5d77"
+                                    BorderThickness="1"
+                                >
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#414141" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
