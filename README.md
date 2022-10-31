@@ -5,7 +5,7 @@ Gives ability to search opened lobbies of maps in StarCraft 2 on EU and US serve
 
 Based on StarCraft II Arcade API (from https://sc2arcade.com).
 
-Don't search maps with extensions.
+Doesn't search maps with extensions.
 
 ## Installation
 Download "SC2 Lobby Notifier.zip" (https://github.com/B4dName/SC2-Lobby-Notifier/raw/main/SC2%20Lobby%20Notifier.zip).
