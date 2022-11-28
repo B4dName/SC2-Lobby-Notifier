@@ -124,7 +124,7 @@
     <value>Добавить карту</value>
   </data>
   <data name="AddMapButtonToolTip" xml:space="preserve">
-    <value>Добавить новую аркадную карту в таблицу</value>
+    <value>Добавить новую карту «Игротеки» в таблицу</value>
   </data>
   <data name="ConnectionIsLostMessage" xml:space="preserve">
     <value>Невозможно получить данные. Пожалуйста, проверьте подключение к Интернету.
@@ -156,15 +156,15 @@
     <value>Лобби было начато в: </value>
   </data>
   <data name="MapAddedMessage" xml:space="preserve">
-    <value>Карта "newMap" успешно добавлена в таблицу.
+    <value>Карта «newMap» успешно добавлена в таблицу.
 </value>
   </data>
   <data name="MapAlreadyExistMessage" xml:space="preserve">
-    <value>Карта "newMap" уже добавлена в таблицу.
+    <value>Карта «newMap» уже добавлена в таблицу.
 </value>
   </data>
   <data name="MapNotExistMessage" xml:space="preserve">
-    <value>Карта "newMap" не существует в StarCraft 2.
+    <value>Карта «newMap» не существует в StarCraft 2.
 </value>
   </data>
   <data name="MapsNamesColumn" xml:space="preserve">
@@ -177,10 +177,10 @@
     <value>Удалить выбранные карты</value>
   </data>
   <data name="MapsNamesContextMenuOpenLinkEU" xml:space="preserve">
-    <value>Открыть ссылку на европейскую карту на StarCraft II Arcade</value>
+    <value>Открыть ссылку на европейскую карту «Игротеки» StarCraft II</value>
   </data>
   <data name="MapsNamesContextMenuOpenLinkUS" xml:space="preserve">
-    <value>Открыть ссылку на американскую карту на StarCraft II Arcade</value>
+    <value>Открыть ссылку на американскую карту «Игротеки» StarCraft II</value>
   </data>
   <data name="MapsNamesContextMenuSearchOnEU" xml:space="preserve">
     <value>Изменить статус поиска карты на европейском сервере</value>
@@ -202,7 +202,7 @@
 </value>
   </data>
   <data name="SearchEnabledMessage" xml:space="preserve">
-    <value>Поиск открытых лобби включен.
+    <value>Поиск открытых лобби включён.
 </value>
   </data>
   <data name="SearchOnEUColumnToolTip" xml:space="preserve">
@@ -215,15 +215,15 @@
     <value>Показать главное окно</value>
   </data>
   <data name="SiteDoesntWorkMessage" xml:space="preserve">
-    <value>StarCraft II Arcade не работает. Пожалуйста, попробуйте позже.
+    <value>«Игротека» StarCraft II не работает. Пожалуйста, попробуйте позже.
 </value>
   </data>
   <data name="SiteDoesntWorkOnEUMessage" xml:space="preserve">
-    <value>StarCraft II Arcade не работает на европейском сервере. Работает только американский сервер.
+    <value>«Игротека» StarCraft II не работает на европейском сервере. Работает только американский сервер.
 </value>
   </data>
   <data name="SiteDoesntWorkOnUSMessage" xml:space="preserve">
-    <value>StarCraft II Arcade не работает на американском сервере. Работает только европейский сервер.
+    <value>«Игротека» StarCraft II не работает на американском сервере. Работает только европейский сервер.
 </value>
   </data>
   <data name="Started" xml:space="preserve">
@@ -242,7 +242,7 @@
     <value>Лобби вернулось в пустоту в: </value>
   </data>
   <data name="UnknownEnd3" xml:space="preserve">
-    <value>Лобби было подорвано к черту в: </value>
+    <value>Лобби было подорвано к чёрту в: </value>
   </data>
   <data name="UserNotEnteredMapNameMessage" xml:space="preserve">
     <value>Сначала вы должны ввести название карты.
